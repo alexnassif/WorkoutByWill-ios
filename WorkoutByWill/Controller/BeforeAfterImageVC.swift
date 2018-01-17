@@ -10,6 +10,9 @@ import UIKit
 
 class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    var imageB: String!
+    var imageA: String!
+    
     lazy var imageViewControllers: [UIViewController] = {
         
         return [self.newVC(viewController: "beginImageVC"),

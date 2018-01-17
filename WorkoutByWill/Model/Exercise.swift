@@ -10,10 +10,10 @@ import Foundation
 
 class Exercise {
     
-    private var ex_name: String
-    private var ex_how: String
-    private var ex_why: String
-    private var ex_image: String
+    private (set) public var ex_name: String
+    private (set) public var ex_how: String
+    private (set) public var ex_why: String
+    private (set) public var ex_image: String
     
     init(name: String, how: String, why: String, image: String) {
         self.ex_name = name

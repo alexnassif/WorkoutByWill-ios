@@ -128,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="250" id="n4U-zx-vCc" customClass="ExerciseCell" customModule="WorkoutByWill" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="250" id="n4U-zx-vCc" customClass="ExerciseCell" customModule="WorkoutByWill" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n4U-zx-vCc" id="iYf-se-4nI">
@@ -249,7 +249,6 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AKW-mW-w7O" id="jMF-C3-q7s"/>
-                        <segue destination="yTr-wh-eWn" kind="show" identifier="exerciseDetailSegue" id="PFB-XX-GKE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oW-0u-rRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,17 +264,17 @@
                         <viewControllerLayoutGuide type="bottom" id="igg-rH-NID"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nmM-tj-ATP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0T-Wu-nx1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
                                 <connections>
-                                    <segue destination="T6o-uH-hyL" kind="embed" id="aEl-fR-bY1"/>
+                                    <segue destination="T6o-uH-hyL" kind="embed" identifier="imageSegue" id="aEl-fR-bY1"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ifQ-aX-6eZ">
-                                <rect key="frame" x="166" y="258.5" width="42" height="61.5"/>
+                                <rect key="frame" x="166" y="371" width="42" height="61.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6c-xt-rT8">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -311,9 +310,13 @@
                             <constraint firstItem="g0T-Wu-nx1" firstAttribute="top" secondItem="nmM-tj-ATP" secondAttribute="top" id="lmR-bz-gBh"/>
                             <constraint firstAttribute="trailing" secondItem="g0T-Wu-nx1" secondAttribute="trailing" id="se0-oa-3iS"/>
                             <constraint firstItem="ifQ-aX-6eZ" firstAttribute="centerX" secondItem="g0T-Wu-nx1" secondAttribute="centerX" id="wS8-H0-Mzw"/>
-                            <constraint firstItem="igg-rH-NID" firstAttribute="top" secondItem="ifQ-aX-6eZ" secondAttribute="bottom" constant="234" id="xsq-KB-3SX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="howLbl" destination="Cow-Hv-0Ay" id="Ubj-YX-hZw"/>
+                        <outlet property="nameLbl" destination="S6c-xt-rT8" id="Yi6-4h-JGs"/>
+                        <outlet property="whyLbl" destination="Csr-ok-naN" id="NBO-jn-EF7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29n-zV-SSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,10 +330,10 @@
             </objects>
             <point key="canvasLocation" x="3138" y="493"/>
         </scene>
-        <!--View Controller-->
+        <!--Begin ImageVC-->
         <scene sceneID="J7a-a9-H22">
             <objects>
-                <viewController storyboardIdentifier="beginImageVC" modalPresentationStyle="currentContext" id="fZh-6n-WvU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="beginImageVC" modalPresentationStyle="currentContext" id="fZh-6n-WvU" customClass="BeginImageVC" customModule="WorkoutByWill" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bkq-v8-TKc"/>
                         <viewControllerLayoutGuide type="bottom" id="hUq-sy-NDa"/>
@@ -364,15 +367,18 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="233"/>
+                    <connections>
+                        <outlet property="beginImage" destination="z8B-E5-Kgs" id="DnL-cb-ZAs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aq4-MQ-o0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4269.6000000000004" y="541.97901049475263"/>
         </scene>
-        <!--View Controller-->
+        <!--After ImageVC-->
         <scene sceneID="r1e-Ck-Nrh">
             <objects>
-                <viewController storyboardIdentifier="afterImageVC" modalPresentationStyle="currentContext" id="jOy-aB-SUI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="afterImageVC" modalPresentationStyle="currentContext" id="jOy-aB-SUI" customClass="AfterImageVC" customModule="WorkoutByWill" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bd9-iu-DJ9"/>
                         <viewControllerLayoutGuide type="bottom" id="z6S-K0-mUL"/>
@@ -406,6 +412,9 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="233"/>
+                    <connections>
+                        <outlet property="afterImage" destination="L0i-zh-2z1" id="K1v-Uq-C2Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl2-Th-LP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

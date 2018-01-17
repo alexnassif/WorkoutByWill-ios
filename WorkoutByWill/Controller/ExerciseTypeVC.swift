@@ -46,9 +46,14 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "exerciseDetailSegue", sender: nil)
+        
+        let exercise = exercises[indexPath.row]
+        let exerciseDetailVC = self.storyboard!.instantiateViewController(withIdentifier: "ExerciseDetailVC")
+            as! ExerciseDetailVC
+        exerciseDetailVC.exercise = exercise
+        self.navigationController!.pushViewController(exerciseDetailVC, animated: true)
+        
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseTypeCell", for: indexPath) as? ExerciseTypeCell {
@@ -61,8 +66,9 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return ExerciseTypeCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return exercises.count//
+        return exercises.count
     }
     
     

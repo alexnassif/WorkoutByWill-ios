@@ -1,22 +1,17 @@
 //
-//  ExerciseDetailVC.swift
+//  AfterImageVC.swift
 //  WorkoutByWill
 //
-//  Created by Alex Nassif on 1/9/18.
+//  Created by Alex Nassif on 1/16/18.
 //  Copyright © 2018 alexnassif. All rights reserved.
 //
 
 import UIKit
 
-class ExerciseDetailVC: UIViewController {
+class AfterImageVC: UIViewController {
 
-    
-    @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var howLbl: UILabel!
-    @IBOutlet weak var whyLbl: UILabel!
-    
-    var exercise: Exercise!
-    
+    @IBOutlet weak var afterImage: UIImageView!
+    var imageName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,19 +20,13 @@ class ExerciseDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.nameLbl.text = exercise.name
-        self.howLbl.text = exercise.how
-        self.whyLbl.text = exercise.why
-        navigationItem.title = exercise.name
         
+        afterImage.image = UIImage(named: imageName)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "imageSegue") {
-            if let BaImageVC = segue.destination as? BeforeAfterImageVC {
-                
-            }
-        }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 
