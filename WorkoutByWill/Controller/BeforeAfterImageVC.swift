@@ -40,7 +40,19 @@ class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UI
     }
     
     func newVC(viewController: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
+        
+        
+        if(viewController == "afterImageVC"){
+            let afterImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! AfterImageVC
+            afterImageVC.imageName = imageB
+            return afterImageVC
+        }
+        else{
+            let beforeImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! BeginImageVC
+            beforeImageVC.imageName = imageA
+            return beforeImageVC
+        }
+        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -97,12 +109,13 @@ class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UI
     
     func configurePageControl() {
         // The total number of pages that are available is based on how many available colors we have.
-        pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.minY + 10, width: UIScreen.main.bounds.width, height: 50))
+        print(UIScreen.main.bounds.maxY)
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: 200, width: UIScreen.main.bounds.width, height: 50))
         self.pageControl.numberOfPages = imageViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
         self.pageControl.pageIndicatorTintColor = UIColor.white
-        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.pageControl.currentPageIndicatorTintColor = UIColor.red
         self.view.addSubview(pageControl)
     }
 

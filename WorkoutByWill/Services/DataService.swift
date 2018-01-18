@@ -32,6 +32,7 @@ class DataService {
     }
     
     func getAllExercises(handler: @escaping (_ exercises: [Exercise]) -> ()) {
+        
         var exerciseArray = [Exercise]()
         REF_EXERCISES.observeSingleEvent(of: .value) { (exerciseSnapshot) in
             guard let exerciseSnapshot = exerciseSnapshot.children.allObjects as?

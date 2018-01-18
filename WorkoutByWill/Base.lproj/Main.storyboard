@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -128,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="250" id="n4U-zx-vCc" customClass="ExerciseCell" customModule="WorkoutByWill" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="250" id="n4U-zx-vCc" customClass="ExerciseCell" customModule="WorkoutByWill" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n4U-zx-vCc" id="iYf-se-4nI">
@@ -268,28 +269,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0T-Wu-nx1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="3as-VE-l8P"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="T6o-uH-hyL" kind="embed" identifier="imageSegue" id="aEl-fR-bY1"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ifQ-aX-6eZ">
-                                <rect key="frame" x="166" y="371" width="42" height="61.5"/>
+                                <rect key="frame" x="16" y="250" width="343" height="417"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6c-xt-rT8">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="139"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cow-Hv-0Ay">
-                                        <rect key="frame" x="0.0" y="20.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="139" width="343" height="139"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csr-ok-naN">
-                                        <rect key="frame" x="0.0" y="41" width="42" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="278" width="343" height="139"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -305,11 +309,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="g0T-Wu-nx1" firstAttribute="leading" secondItem="nmM-tj-ATP" secondAttribute="leading" id="6HX-I6-2f0"/>
-                            <constraint firstItem="ifQ-aX-6eZ" firstAttribute="top" secondItem="nmM-tj-ATP" secondAttribute="top" constant="371" id="edl-SZ-Q06"/>
-                            <constraint firstAttribute="bottom" secondItem="g0T-Wu-nx1" secondAttribute="bottom" constant="434" id="fc8-mi-tcs"/>
+                            <constraint firstItem="ifQ-aX-6eZ" firstAttribute="top" secondItem="g0T-Wu-nx1" secondAttribute="bottom" id="7RH-OP-vJN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ifQ-aX-6eZ" secondAttribute="trailing" id="On2-7X-L0p"/>
+                            <constraint firstItem="ifQ-aX-6eZ" firstAttribute="leading" secondItem="nmM-tj-ATP" secondAttribute="leadingMargin" id="TNo-DC-NyS"/>
                             <constraint firstItem="g0T-Wu-nx1" firstAttribute="top" secondItem="nmM-tj-ATP" secondAttribute="top" id="lmR-bz-gBh"/>
                             <constraint firstAttribute="trailing" secondItem="g0T-Wu-nx1" secondAttribute="trailing" id="se0-oa-3iS"/>
-                            <constraint firstItem="ifQ-aX-6eZ" firstAttribute="centerX" secondItem="g0T-Wu-nx1" secondAttribute="centerX" id="wS8-H0-Mzw"/>
+                            <constraint firstItem="igg-rH-NID" firstAttribute="top" secondItem="ifQ-aX-6eZ" secondAttribute="bottom" id="ttc-8E-am0"/>
                         </constraints>
                     </view>
                     <connections>
