@@ -41,8 +41,9 @@ class DataService {
                 let name = exercise.childSnapshot(forPath: "name").value as! String
                 let how = exercise.childSnapshot(forPath: "how").value as! String
                 let why = exercise.childSnapshot(forPath: "why").value as! String
-                let image = exercise.childSnapshot(forPath: "image").value as! String
-                let ex = Exercise(name: name, how: how, why: why, image: image)
+                let imageBefore = exercise.childSnapshot(forPath: "imageBefore").value as! String
+                let imageAfter = exercise.childSnapshot(forPath: "imageAfter").value as! String
+                let ex = Exercise(name: name, how: how, why: why, image: imageBefore)
                 exerciseArray.append(ex)
             }
             handler(exerciseArray)

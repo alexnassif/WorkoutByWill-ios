@@ -10,8 +10,9 @@ import UIKit
 
 class ExerciseDetailVC: UIViewController {
 
+    @IBOutlet weak var howTitleLbl: UILabel!
     
-    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var whyTitleLbl: UILabel!
     @IBOutlet weak var howLbl: UILabel!
     @IBOutlet weak var whyLbl: UILabel!
     
@@ -25,7 +26,6 @@ class ExerciseDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.nameLbl.text = exercise.name
         self.howLbl.text = exercise.how
         self.whyLbl.text = exercise.why
         navigationItem.title = exercise.name
