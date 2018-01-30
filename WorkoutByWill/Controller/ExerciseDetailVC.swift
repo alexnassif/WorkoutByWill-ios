@@ -26,17 +26,17 @@ class ExerciseDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.howLbl.text = exercise.how
-        self.whyLbl.text = exercise.why
-        navigationItem.title = exercise.name
+        self.howLbl.text = exercise._how
+        self.whyLbl.text = exercise._why
+        navigationItem.title = exercise._name
         
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "imageSegue") {
             let BaImageVC = segue.destination as! BeforeAfterImageVC
-            BaImageVC.imageA = "kneeankle"
-            BaImageVC.imageB = "neckshoulder"
+            BaImageVC.imageA = exercise._imageAfter
+            BaImageVC.imageB = exercise._imageBefore
             
         }
     }

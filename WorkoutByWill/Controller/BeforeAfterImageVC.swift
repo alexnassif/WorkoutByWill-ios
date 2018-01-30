@@ -44,12 +44,12 @@ class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UI
         
         if(viewController == "afterImageVC"){
             let afterImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! AfterImageVC
-            afterImageVC.imageName = imageB
+            afterImageVC.imageName = imageA
             return afterImageVC
         }
         else{
             let beforeImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! BeginImageVC
-            beforeImageVC.imageName = imageA
+            beforeImageVC.imageName = imageB
             return beforeImageVC
         }
         

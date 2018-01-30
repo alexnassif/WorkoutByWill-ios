@@ -21,7 +21,18 @@ class AfterImageVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        afterImage.image = UIImage(named: imageName)
+        if let profileImageUrl = imageName {
+            let url = URL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.afterImage.image = UIImage(data: data!)
+                }
+            }).resume()
+        }
     }
 
     override func didReceiveMemoryWarning() {

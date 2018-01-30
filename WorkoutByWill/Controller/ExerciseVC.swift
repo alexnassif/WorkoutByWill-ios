@@ -13,6 +13,7 @@ class ExerciseVC: UIViewController {
     @IBOutlet weak var exerciseTableView: UITableView!
     var exerciseArray = ["Neck and Shoulder", "Knee and Ankle", "Lower Back and Hip"]
     var picArray = ["neckshoulder", "kneeankle", "backhip"]
+    var exArr = ["neckandshoulders", "kneeandankle", "lowerbackandhip"]
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseTableView.dataSource = self
@@ -34,10 +35,15 @@ class ExerciseVC: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ExerciseTypeVC", sender: self)
+        performSegue(withIdentifier: "ExerciseTypeVC", sender: exArr[indexPath.row])
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let productsVC = segue.destination as? ExerciseTypeVC {
+            productsVC.type = sender as! String
+        }
+        
+    }
 
 
 }

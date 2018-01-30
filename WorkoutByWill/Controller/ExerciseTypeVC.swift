@@ -14,6 +14,7 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     private(set) public var exercises = [Exercise]()
+    var type: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.getAllExercises { (returnedExercisesArray) in
+        DataService.instance.getAllExercises(type: self.type) { (returnedExercisesArray) in
             self.exercises = returnedExercisesArray
             self.collectionView.reloadData()
         }
@@ -59,7 +60,7 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseTypeCell", for: indexPath) as? ExerciseTypeCell {
             let exercise = exercises[indexPath.row]
             let image = UIImage(named: "backhip")
-            cell.configureCell(exerciseType: exercise.name, exerciseImage: image!)
+            cell.configureCell(exerciseType: exercise._name, exerciseImage: image!)
             return cell
         }
         

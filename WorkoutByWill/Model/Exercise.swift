@@ -10,29 +10,34 @@ import Foundation
 
 class Exercise {
     
-    private (set) public var ex_name: String
-    private (set) public var ex_how: String
-    private (set) public var ex_why: String
-    private (set) public var ex_image: String
+    private var name: String
+    private var how: String
+    private var why: String
+    private var imageBefore: String
+    private var imageAfter: String
     
-    init(name: String, how: String, why: String, image: String) {
-        self.ex_name = name
-        self.ex_how = how
-        self.ex_why = why
-        self.ex_image = image
+    init(name: String, how: String, why: String, imageB: String, imageA: String) {
+        self.name = name
+        self.how = how
+        self.why = why
+        self.imageBefore = imageB
+        self.imageAfter = imageA
     }
     
-    var name: String {
-        return ex_name
+    var _name: String {
+        return name
     }
-    var how: String {
-        return ex_how
+    var _how: String {
+        return how
     }
-    var why: String{
-        return ex_why
+    var _why: String{
+        return why
     }
-    var image: String{
-        return ex_image
+    var _imageBefore: String{
+        return imageBefore
+    }
+    var _imageAfter: String{
+        return imageAfter
     }
     
 }

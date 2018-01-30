@@ -31,10 +31,10 @@ class DataService {
         return _REF_WORKOUTS
     }
     
-    func getAllExercises(handler: @escaping (_ exercises: [Exercise]) -> ()) {
-        
+    func getAllExercises(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
+        let ex_child_ref = _REF_EXERCISES.child(type)
         var exerciseArray = [Exercise]()
-        REF_EXERCISES.observeSingleEvent(of: .value) { (exerciseSnapshot) in
+        ex_child_ref.observeSingleEvent(of: .value) { (exerciseSnapshot) in
             guard let exerciseSnapshot = exerciseSnapshot.children.allObjects as?
                 [DataSnapshot] else {return}
             for exercise in exerciseSnapshot{
@@ -43,7 +43,7 @@ class DataService {
                 let why = exercise.childSnapshot(forPath: "why").value as! String
                 let imageBefore = exercise.childSnapshot(forPath: "imageBefore").value as! String
                 let imageAfter = exercise.childSnapshot(forPath: "imageAfter").value as! String
-                let ex = Exercise(name: name, how: how, why: why, image: imageBefore)
+                let ex = Exercise(name: name, how: how, why: why, imageB: imageBefore, imageA: imageAfter)
                 exerciseArray.append(ex)
             }
             handler(exerciseArray)
