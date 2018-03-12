@@ -211,14 +211,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG2-ce-4ly">
-                                                    <rect key="frame" x="0.0" y="183.5" width="200" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG2-ce-4ly">
+                                                    <rect key="frame" x="0.0" y="204" width="200" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Rd2-uq-FOX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="175.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="196"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -418,22 +418,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-zh-2z1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utc-iF-Dod">
-                                <rect key="frame" x="8" y="12" width="359" height="30.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="qf6-PV-OJ7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="L0i-zh-2z1" firstAttribute="leading" secondItem="IVg-Yz-gg4" secondAttribute="leading" id="6aN-8z-buY"/>
-                            <constraint firstItem="utc-iF-Dod" firstAttribute="top" secondItem="Bd9-iu-DJ9" secondAttribute="bottom" constant="12" id="BQK-hB-UhI"/>
-                            <constraint firstItem="utc-iF-Dod" firstAttribute="leading" secondItem="IVg-Yz-gg4" secondAttribute="leading" constant="8" id="K65-gv-ZKg"/>
-                            <constraint firstAttribute="trailing" secondItem="utc-iF-Dod" secondAttribute="trailing" constant="8" id="NBs-aK-MEl"/>
                             <constraint firstItem="L0i-zh-2z1" firstAttribute="top" secondItem="Bd9-iu-DJ9" secondAttribute="bottom" id="VkO-ve-avZ"/>
                             <constraint firstItem="z6S-K0-mUL" firstAttribute="top" secondItem="L0i-zh-2z1" secondAttribute="bottom" id="bMX-sz-GEV"/>
                             <constraint firstAttribute="trailing" secondItem="L0i-zh-2z1" secondAttribute="trailing" id="he3-Dn-fGY"/>
