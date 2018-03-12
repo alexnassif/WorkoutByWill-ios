@@ -13,15 +13,13 @@ class Exercise {
     private var name: String
     private var how: String
     private var why: String
-    private var imageBefore: String
-    private var imageAfter: String
+    private var images: [String]
     
-    init(name: String, how: String, why: String, imageB: String, imageA: String) {
+    init(name: String, how: String, why: String, images: [String]) {
         self.name = name
         self.how = how
         self.why = why
-        self.imageBefore = imageB
-        self.imageAfter = imageA
+        self.images = images
     }
     
     var _name: String {
@@ -33,11 +31,8 @@ class Exercise {
     var _why: String{
         return why
     }
-    var _imageBefore: String{
-        return imageBefore
-    }
-    var _imageAfter: String{
-        return imageAfter
+    var _images: [String]{
+        return images
     }
     
 }

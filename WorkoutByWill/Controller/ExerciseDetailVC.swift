@@ -35,9 +35,7 @@ class ExerciseDetailVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "imageSegue") {
             let BaImageVC = segue.destination as! BeforeAfterImageVC
-            BaImageVC.imageA = exercise._imageAfter
-            BaImageVC.imageB = exercise._imageBefore
-            
+            BaImageVC.images = exercise._images
         }
     }
     

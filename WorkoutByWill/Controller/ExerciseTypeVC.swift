@@ -15,6 +15,8 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     fileprivate let itemsPerRow: CGFloat = 2
     private(set) public var exercises = [Exercise]()
     var type: String!
+    var imageMainLoc: String!
+    var imageMain: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +61,22 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "exerciseTypeCell", for: indexPath) as? ExerciseTypeCell {
             let exercise = exercises[indexPath.row]
-            let image = UIImage(named: "backhip")
-            cell.configureCell(exerciseType: exercise._name, exerciseImage: image!)
+            
+            let profileImageUrl = exercise._images[0]
+            print(profileImageUrl)
+            let url = URL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    
+                    cell.configureCell(exerciseType: exercise._name, exerciseImage: UIImage(data: data!)!)
+                }
+            }).resume()
+            
+
             return cell
         }
         

@@ -30,7 +30,10 @@ class DataService {
     var REF_WORKOUTS: DatabaseReference {
         return _REF_WORKOUTS
     }
-    
+    func getRandomWorkouts(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
+        let wk_child_ref = _REF_BASE.child(type)
+        
+    }
     func getAllExercises(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
         let ex_child_ref = _REF_EXERCISES.child(type)
         var exerciseArray = [Exercise]()
@@ -41,9 +44,8 @@ class DataService {
                 let name = exercise.childSnapshot(forPath: "name").value as! String
                 let how = exercise.childSnapshot(forPath: "how").value as! String
                 let why = exercise.childSnapshot(forPath: "why").value as! String
-                let imageBefore = exercise.childSnapshot(forPath: "imageBefore").value as! String
-                let imageAfter = exercise.childSnapshot(forPath: "imageAfter").value as! String
-                let ex = Exercise(name: name, how: how, why: why, imageB: imageBefore, imageA: imageAfter)
+                let images = exercise.childSnapshot(forPath: "images").value as! [String]
+                let ex = Exercise(name: name, how: how, why: why, images: images)
                 exerciseArray.append(ex)
             }
             handler(exerciseArray)

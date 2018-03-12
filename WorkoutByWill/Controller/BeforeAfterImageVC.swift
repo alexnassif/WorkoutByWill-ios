@@ -10,13 +10,16 @@ import UIKit
 
 class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    var imageB: String!
-    var imageA: String!
+    var images: [String]!
     
     lazy var imageViewControllers: [UIViewController] = {
         
-        return [self.newVC(viewController: "beginImageVC"),
-                self.newVC(viewController: "afterImageVC")]
+        var vcarray: [UIViewController] = []
+        for pic in images{
+            vcarray.append(self.newVC(viewController: "afterImageVC", imageLoc: pic))
+        }
+        
+        return vcarray
     }()
     
     
@@ -39,19 +42,12 @@ class BeforeAfterImageVC: UIPageViewController, UIPageViewControllerDelegate, UI
         configurePageControl()        // Do any additional setup after loading the view.
     }
     
-    func newVC(viewController: String) -> UIViewController {
+    func newVC(viewController: String, imageLoc: String) -> UIViewController {
         
         
-        if(viewController == "afterImageVC"){
             let afterImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! AfterImageVC
-            afterImageVC.imageName = imageA
+            afterImageVC.imageName = imageLoc
             return afterImageVC
-        }
-        else{
-            let beforeImageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController) as! BeginImageVC
-            beforeImageVC.imageName = imageB
-            return beforeImageVC
-        }
         
     }
     
