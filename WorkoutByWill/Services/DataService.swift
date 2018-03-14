@@ -32,7 +32,6 @@ class DataService {
     }
     func getRandomWorkouts(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
         let wk_child_ref = _REF_BASE.child(type)
-        
     }
     func getAllExercises(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
         let ex_child_ref = _REF_EXERCISES.child(type)
