@@ -13,12 +13,18 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var dailyCollectionview: UICollectionView!
     
     @IBOutlet weak var dailySegment: UISegmentedControl!
-    
+    private(set) public var exercises = [ExerciseDetail]()
     var type: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dailyCollectionview.delegate = self
+        dailyCollectionview.dataSource = self
+        
+        DataService.instance.getRandomWorkouts(workout: "randomWorkout", day: "monday") { (dailyArray) in
+            self.exercises = dailyArray
+            self.dailyCollectionview.reloadData()
+        }
         // Do any additional setup after loading the view.
     }
 
