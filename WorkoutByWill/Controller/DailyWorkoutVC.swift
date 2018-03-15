@@ -21,7 +21,7 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         dailyCollectionview.delegate = self
         dailyCollectionview.dataSource = self
         
-        DataService.instance.getRandomWorkouts(workout: "randomWorkout", day: "monday") { (dailyArray) in
+        DataService.instance.getRandomWorkouts(workout: type, day: "monday") { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()
         }
@@ -29,11 +29,21 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        return exercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dailyCell", for: indexPath) as? DailyCell{
+            
+            let exerciseDetail = exercises[indexPath.row]
+            let dailyImage = UIImage(named: "backhip")
+            cell.configureCell(exercise: exerciseDetail._exerciseName, sets: exerciseDetail._sets, reps: exerciseDetail._reps, rest: exerciseDetail._rest, image: dailyImage!)
+            
+            return cell
+            
+        }
         
+        return DailyCell()
     }
 
     /*

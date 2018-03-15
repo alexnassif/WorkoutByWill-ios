@@ -95,7 +95,7 @@
                     <navigationItem key="navigationItem" id="Fny-cp-N4C"/>
                     <connections>
                         <outlet property="programCollectionView" destination="AAm-lG-2Jc" id="adT-ID-57i"/>
-                        <segue destination="K11-tn-BQ3" kind="show" id="kfq-Kd-ru1"/>
+                        <segue destination="K11-tn-BQ3" kind="show" identifier="DaySegue" id="kfq-Kd-ru1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8r-Mp-Axt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mym-7e-IzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1530.4000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1530" y="14"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cnY-1G-hiv">

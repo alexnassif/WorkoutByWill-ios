@@ -25,6 +25,15 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DaySegue", sender: programArray[indexPath.row])    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let productsVC = segue.destination as? DailyWorkoutVC {
+            productsVC.type = sender as! String
+        }
+    }
+    
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
     @IBOutlet weak var programCollectionView: UICollectionView!
