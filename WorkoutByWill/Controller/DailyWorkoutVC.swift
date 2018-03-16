@@ -16,6 +16,34 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     private(set) public var exercises = [ExerciseDetail]()
     var type: String!
     
+    @IBAction func changeDay(_ sender: Any) {
+        
+        let index = dailySegment.selectedSegmentIndex
+        var day = "monday"
+        switch index {
+        case 0:
+            day = "monday"
+        case 1:
+            day = "tuesday"
+        case 2:
+            day = "wednesday"
+        case 3:
+            day = "thursday"
+        case 4:
+            day = "friday"
+        case 5:
+            day = "saturday"
+        case 6:
+            day = "sunday"
+        default:
+            day = "monday"
+        }
+        
+        DataService.instance.getRandomWorkouts(workout: type, day: day) { (dailyArray) in
+            self.exercises = dailyArray
+            self.dailyCollectionview.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         dailyCollectionview.delegate = self
