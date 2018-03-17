@@ -55,7 +55,19 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         // Do any additional setup after loading the view.
     }
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let exerciseDetail = exercises[indexPath.row]
+        
+        DataService.instance.getSingleExercise(category: exerciseDetail._category, keyName: exerciseDetail._keyName) { (ex) in
+            let exerciseDetailVC = self.storyboard!.instantiateViewController(withIdentifier: "ExerciseDetailVC")
+                as! ExerciseDetailVC
+            exerciseDetailVC.exercise = ex
+            self.navigationController!.pushViewController(exerciseDetailVC, animated: true)
+            
+        }
+        
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return exercises.count
     }

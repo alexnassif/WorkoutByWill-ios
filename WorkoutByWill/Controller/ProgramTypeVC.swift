@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
 
-class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AuthUIDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return programArray.count
     }
@@ -42,13 +45,55 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewDidLoad()
         programCollectionView.dataSource = self
         programCollectionView.delegate = self
+        let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self as? FUIAuthDelegate
+        let authProviders =  [FUIGoogleAuth()]
+        authUI?.providers = authProviders
+        
+        
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "logo")
         imageView.image = image
         logoContainer.addSubview(imageView)
-        navigationItem.titleView = logoContainer        // Do any additional setup after loading the view.
+        navigationItem.titleView = logoContainer
+        
+        // Do any additional setup after loading the view.
+        let x = isUserSignedIn()
+        if(x){
+            DataService.instance.getPaidWorkouts(handler: { (paidArr) in
+                
+            })
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isUserSignedIn() {
+            showLoginView()
+        }
+    }
+    
+    private func isUserSignedIn() -> Bool {
+        guard Auth.auth().currentUser != nil else { return false }
+        return true
+    }
+    
+    private func showLoginView() {
+        if let authVC = FUIAuth.defaultAuthUI()?.authViewController() {
+            present(authVC, animated: true, completion: nil)
+        }
+    }
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        guard let user = user else {
+            print(error)
+            return
+        }
+        
+    
     }
 
     override func didReceiveMemoryWarning() {

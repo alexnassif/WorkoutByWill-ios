@@ -8,6 +8,8 @@
 
 import Foundation
 import Firebase
+import Firebase
+import FirebaseAuthUI
 
 let DB_BASE =  Database.database().reference()
 
@@ -69,4 +71,37 @@ class DataService {
             
         }
     }
+    func getPaidWorkouts(handler: @escaping (_ exercises: [String]) -> ()) {
+        let individualRef = _REF_BASE.child((Auth.auth().currentUser?.uid)!).child("listWorkouts")
+        var listWorkouts = [String]()
+        
+        individualRef.observeSingleEvent(of: .value) { (paidSnapshot) in
+            guard let paidSnapshot = paidSnapshot.children.allObjects as?
+                [DataSnapshot] else {return}
+            
+            for ex in paidSnapshot {
+                listWorkouts.append(ex.value as! String)
+            }
+            handler(listWorkouts)
+        }
+        
+    }
+        
+        
+    func getSingleExercise(category: String, keyName: String, handler: @escaping (_ exercise: Exercise)-> ()){
+        let ex_child_ref = _REF_EXERCISES.child(category).child(keyName)
+        
+        ex_child_ref.observeSingleEvent(of: .value) { (exerciseSnapshot) in
+            
+            let name = exerciseSnapshot.childSnapshot(forPath: "name").value as! String
+            let why = exerciseSnapshot.childSnapshot(forPath: "why").value as! String
+            let how = exerciseSnapshot.childSnapshot(forPath: "how").value as! String
+            let images = exerciseSnapshot.childSnapshot(forPath: "images").value as! [String]
+            let ex = Exercise(name: name, how: how, why: why, images: images)
+            handler(ex)
+        }
+    }
+    
+    
 }
+

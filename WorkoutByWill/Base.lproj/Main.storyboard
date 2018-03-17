@@ -293,20 +293,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Y9U-Hl-tqs" kind="relationship" relationship="viewControllers" id="r2i-5I-sht"/>
                         <segue destination="3eK-hb-ntf" kind="relationship" relationship="viewControllers" id="2k4-zA-hkj"/>
+                        <segue destination="mXd-oG-daB" kind="relationship" relationship="viewControllers" id="FBR-Wd-iB0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awb-nm-dyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1017" y="253"/>
         </scene>
-        <!--Exercises-->
+        <!--Wellness Exercises-->
         <scene sceneID="IhY-ej-JaR">
             <objects>
                 <navigationController id="3eK-hb-ntf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Exercises" id="upy-Nh-Yf1"/>
+                    <tabBarItem key="tabBarItem" title="Wellness Exercises" id="upy-Nh-Yf1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="71N-i7-BIK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -387,6 +393,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JED-8y-LDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="722" y="697"/>
+        </scene>
+        <!--Your Workouts-->
+        <scene sceneID="rQg-eJ-777">
+            <objects>
+                <navigationController id="mXd-oG-daB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Your Workouts" id="MZX-Zo-RaE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Ijj-zi-KkS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u9t-hA-OAq" kind="relationship" relationship="rootViewController" id="dpg-3X-Gbc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xO-dt-zDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130" y="1424"/>
+        </scene>
+        <!--PaidVC-->
+        <scene sceneID="RG0-OF-eTg">
+            <objects>
+                <viewController storyboardIdentifier="PaidVC" id="u9t-hA-OAq" customClass="PaidVC" customModule="WorkoutByWill" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Wn-Bd-ooE"/>
+                        <viewControllerLayoutGuide type="bottom" id="kcY-HA-Fzi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wzj-dm-Na1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HJ6-Yv-VEg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2GD-DZ-hbJ">
+                                    <size key="itemSize" width="234" height="196"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="paidTypeCell" id="9y4-cD-y6f" customClass="PaidTypeCell" customModule="WorkoutByWill" customModuleProvider="target">
+                                        <rect key="frame" x="70.5" y="0.0" width="234" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="234" height="196"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u7s-Pl-SQF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="167.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X8-Xk-1qh">
+                                                    <rect key="frame" x="0.0" y="175.5" width="234" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="u7s-Pl-SQF" secondAttribute="trailing" id="2Np-US-IZr"/>
+                                            <constraint firstAttribute="trailing" secondItem="6X8-Xk-1qh" secondAttribute="trailing" id="7jf-RQ-ylC"/>
+                                            <constraint firstAttribute="bottom" secondItem="6X8-Xk-1qh" secondAttribute="bottom" id="Sfz-Wp-Cdv"/>
+                                            <constraint firstItem="u7s-Pl-SQF" firstAttribute="top" secondItem="9y4-cD-y6f" secondAttribute="top" id="TJc-4j-wav"/>
+                                            <constraint firstItem="6X8-Xk-1qh" firstAttribute="top" secondItem="u7s-Pl-SQF" secondAttribute="bottom" constant="8" id="ZXJ-9b-rhT"/>
+                                            <constraint firstItem="u7s-Pl-SQF" firstAttribute="leading" secondItem="9y4-cD-y6f" secondAttribute="leading" id="rBL-eT-bxA"/>
+                                            <constraint firstItem="6X8-Xk-1qh" firstAttribute="leading" secondItem="9y4-cD-y6f" secondAttribute="leading" id="vd6-km-BCg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="paidImage" destination="u7s-Pl-SQF" id="jt1-qo-jsg"/>
+                                            <outlet property="paidLbl" destination="6X8-Xk-1qh" id="J9d-uC-Liw"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HJ6-Yv-VEg" secondAttribute="trailing" id="ZyN-Qg-zPe"/>
+                            <constraint firstItem="kcY-HA-Fzi" firstAttribute="top" secondItem="HJ6-Yv-VEg" secondAttribute="bottom" id="a8t-o9-Ie4"/>
+                            <constraint firstItem="HJ6-Yv-VEg" firstAttribute="leading" secondItem="wzj-dm-Na1" secondAttribute="leading" id="r6u-EI-jjX"/>
+                            <constraint firstItem="HJ6-Yv-VEg" firstAttribute="top" secondItem="wzj-dm-Na1" secondAttribute="top" id="uWS-Uh-6qq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="spy-7F-DzX"/>
+                    <connections>
+                        <outlet property="paidCollectionView" destination="HJ6-Yv-VEg" id="sao-8m-GC8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wG-zp-1lr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733.60000000000002" y="1427.136431784108"/>
         </scene>
         <!--Exercise TypeVC-->
         <scene sceneID="qFl-gd-J61">
