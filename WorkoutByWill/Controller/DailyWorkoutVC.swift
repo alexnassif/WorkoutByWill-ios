@@ -76,8 +76,19 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dailyCell", for: indexPath) as? DailyCell{
             
             let exerciseDetail = exercises[indexPath.row]
-            let dailyImage = UIImage(named: "backhip")
-            cell.configureCell(exercise: exerciseDetail._exerciseName, sets: exerciseDetail._sets, reps: exerciseDetail._reps, rest: exerciseDetail._rest, image: dailyImage!)
+            let url = URL(string: exerciseDetail._imageLocation)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                DispatchQueue.main.async {
+                    
+                    cell.configureCell(exercise: exerciseDetail._exerciseName, sets: exerciseDetail._sets, reps: exerciseDetail._reps, rest: exerciseDetail._rest, image: UIImage(data: data!)!)
+                    
+                }
+            }).resume()
+            
             
             return cell
             

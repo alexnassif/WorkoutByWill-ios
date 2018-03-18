@@ -63,7 +63,6 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             let exercise = exercises[indexPath.row]
             
             let profileImageUrl = exercise._images[0]
-            print(profileImageUrl)
             let url = URL(string: profileImageUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                 if error != nil {

@@ -16,19 +16,23 @@ class ExerciseDetail {
     private var sets: String
     private var rest: String
     private var category: String
+    private var imageLocation: String
     
     init(keyName: String, exerciseName: String,
          reps: String, rest: String, sets: String,
-         category: String){
+         category: String, imageLocation: String){
         self.keyName = keyName
         self.exerciseName = exerciseName
         self.reps = reps
         self.rest = rest
         self.sets = sets
         self.category = category
+        self.imageLocation = imageLocation
     
     }
-    
+    var _imageLocation: String {
+        return imageLocation
+    }
     var _keyName: String {
         return keyName
     }

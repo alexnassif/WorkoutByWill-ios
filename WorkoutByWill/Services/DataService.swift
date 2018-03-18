@@ -44,8 +44,9 @@ class DataService {
                 let rest = day.childSnapshot(forPath: "rest").value as! String
                 let sets = day.childSnapshot(forPath: "sets").value as! String
                 let category = day.childSnapshot(forPath: "category").value as! String
+                let imageLocation = day.childSnapshot(forPath: "image").value as! String
                 let keyName = day.key
-                let exerciseDetail = ExerciseDetail(keyName: keyName, exerciseName: exerciseName, reps: reps, rest: rest, sets: sets, category: category)
+                let exerciseDetail = ExerciseDetail(keyName: keyName, exerciseName: exerciseName, reps: reps, rest: rest, sets: sets, category: category, imageLocation: imageLocation)
                 dailyArray.append(exerciseDetail)
             }
             handler(dailyArray)
