@@ -14,6 +14,8 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var dailySegment: UISegmentedControl!
     private(set) public var exercises = [ExerciseDetail]()
+    fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 10.0, bottom: 5.0, right: 10.0)
+    
     var type: String!
     
     @IBAction func changeDay(_ sender: Any) {
@@ -107,4 +109,32 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     */
 
+}
+
+extension DailyWorkoutVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //2
+        let paddingSpace = sectionInsets.left
+        let availableWidth = view.frame.width - paddingSpace
+        
+        
+        return CGSize(width: availableWidth, height: availableWidth / 3)
+    }
+    
+    //3
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+    
 }
