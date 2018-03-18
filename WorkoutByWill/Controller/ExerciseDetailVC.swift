@@ -13,8 +13,8 @@ class ExerciseDetailVC: UIViewController {
     @IBOutlet weak var howTitleLbl: UILabel!
     
     @IBOutlet weak var whyTitleLbl: UILabel!
-    @IBOutlet weak var howLbl: UILabel!
-    @IBOutlet weak var whyLbl: UILabel!
+    @IBOutlet weak var howLbl: UITextView!
+    @IBOutlet weak var whyLbl: UITextView!
     
     var exercise: Exercise!
     
