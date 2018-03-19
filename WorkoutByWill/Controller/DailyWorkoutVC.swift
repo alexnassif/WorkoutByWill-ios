@@ -120,7 +120,7 @@ extension DailyWorkoutVC: UICollectionViewDelegateFlowLayout {
         let availableWidth = view.frame.width - paddingSpace
         
         
-        return CGSize(width: availableWidth, height: availableWidth / 3)
+        return CGSize(width: availableWidth, height: availableWidth / 4)
     }
     
     //3
