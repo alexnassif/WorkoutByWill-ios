@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
 
-class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AuthUIDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return paidWorkoutsArray.count
     }
@@ -32,10 +35,13 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         super.viewDidLoad()
         paidCollectionView.delegate = self
         paidCollectionView.dataSource = self
-        DataService.instance.getPaidWorkouts { (paidWorkouts) in
-            self.paidWorkoutsArray = paidWorkouts
-            self.paidCollectionView.reloadData()
-        }
+        
+        let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self as? FUIAuthDelegate
+        //let authProviders =  []
+        //authUI?.providers = authProviders
+        
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         imageView.contentMode = .scaleAspectFit
@@ -51,8 +57,43 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !isUserSignedIn() {
+            showLoginView()
+        }
+        else{
+            DataService.instance.getPaidWorkouts(handler: { (paidArray) in
+                self.paidWorkoutsArray = paidArray
+                self.paidCollectionView.reloadData()
+            })
+        }
+    }
 
-    /*
+    private func isUserSignedIn() -> Bool {
+        guard Auth.auth().currentUser != nil else { return false }
+        return true
+    }
+    
+    private func showLoginView() {
+        if let authVC = FUIAuth.defaultAuthUI()?.authViewController() {
+            present(authVC, animated: true, completion: nil)
+        }
+    }
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+    
+        if error != nil {
+            print(error!)
+        }
+        else{
+            DataService.instance.getPaidWorkouts(handler: { (paidArray) in
+                self.paidWorkoutsArray = paidArray
+                self.paidCollectionView.reloadData()
+            })
+        }
+        
+    }    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
