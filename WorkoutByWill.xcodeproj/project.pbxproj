@@ -13,6 +13,7 @@
 		96114C831FFF5874008D1943 /* ExerciseTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96114C821FFF5874008D1943 /* ExerciseTypeVC.swift */; };
 		96114C851FFF5923008D1943 /* ExerciseTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96114C841FFF5923008D1943 /* ExerciseTypeCell.swift */; };
 		96130B6520648A3100397ED6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96130B6420648A3100397ED6 /* Category.swift */; };
+		96130B6720649FAB00397ED6 /* DailyPaidVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96130B6620649FAB00397ED6 /* DailyPaidVC.swift */; };
 		9614A5BA205A4ABF00F13388 /* DailyWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5B9205A4ABF00F13388 /* DailyWorkoutVC.swift */; };
 		9614A5BC205A4C3400F13388 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5BB205A4C3400F13388 /* DailyCell.swift */; };
 		9614A5BE205A512500F13388 /* ExerciseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5BD205A512500F13388 /* ExerciseDetail.swift */; };
@@ -41,6 +42,7 @@
 		96114C821FFF5874008D1943 /* ExerciseTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeVC.swift; sourceTree = "<group>"; };
 		96114C841FFF5923008D1943 /* ExerciseTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeCell.swift; sourceTree = "<group>"; };
 		96130B6420648A3100397ED6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		96130B6620649FAB00397ED6 /* DailyPaidVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPaidVC.swift; sourceTree = "<group>"; };
 		9614A5B9205A4ABF00F13388 /* DailyWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWorkoutVC.swift; sourceTree = "<group>"; };
 		9614A5BB205A4C3400F13388 /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		9614A5BD205A512500F13388 /* ExerciseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetail.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				96DBB4E420589EC500D331E4 /* ProgramTypeVC.swift */,
 				9614A5B9205A4ABF00F13388 /* DailyWorkoutVC.swift */,
 				9616E348205CEEA200787ED0 /* PaidVC.swift */,
+				96130B6620649FAB00397ED6 /* DailyPaidVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				96114C851FFF5923008D1943 /* ExerciseTypeCell.swift in Sources */,
 				96183F201FFC5C6100E80D49 /* DataService.swift in Sources */,
 				9614A5BA205A4ABF00F13388 /* DailyWorkoutVC.swift in Sources */,
+				96130B6720649FAB00397ED6 /* DailyPaidVC.swift in Sources */,
 				961084F51FFEFC33004F385F /* ExerciseVC.swift in Sources */,
 				96114C831FFF5874008D1943 /* ExerciseTypeVC.swift in Sources */,
 				96DBB4E320589DEC00D331E4 /* ProgramTypeCell.swift in Sources */,

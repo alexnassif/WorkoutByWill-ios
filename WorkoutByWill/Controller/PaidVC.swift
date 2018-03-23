@@ -12,25 +12,13 @@ import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 
 class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AuthUIDelegate{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return paidWorkoutsArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "paidTypeCell", for: indexPath) as! PaidTypeCell
-        
-        let workoutName = paidWorkoutsArray[indexPath.row]
-        let image = UIImage(named: "backhip")
-        cell.configureCell(paidType: workoutName, paidImage: image!)
-        
-        return cell
-    }
     
 
     @IBOutlet weak var paidCollectionView: UICollectionView!
     var paidWorkoutsArray = [String]()
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         paidCollectionView.delegate = self
@@ -68,6 +56,30 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
                 self.paidWorkoutsArray = paidArray
                 self.paidCollectionView.reloadData()
             })
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return paidWorkoutsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "paidTypeCell", for: indexPath) as! PaidTypeCell
+        
+        let workoutName = paidWorkoutsArray[indexPath.row]
+        let image = UIImage(named: "backhip")
+        cell.configureCell(paidType: workoutName, paidImage: image!)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "PaidDaySegue", sender: paidWorkoutsArray[indexPath.row])
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dailyPaidVC = segue.destination as? DailyPaidVC {
+            dailyPaidVC.type = sender as! String
         }
     }
 

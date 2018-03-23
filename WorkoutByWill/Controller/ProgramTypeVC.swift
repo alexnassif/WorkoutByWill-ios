@@ -29,7 +29,9 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "DaySegue", sender: programArray[indexPath.row])    }
+        performSegue(withIdentifier: "DaySegue", sender: programArray[indexPath.row])
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let productsVC = segue.destination as? DailyWorkoutVC {

@@ -78,6 +78,30 @@ class DataService {
         
         
     }
+    func getPaidWorkoutDayDetail(workout: String, day: String, handler: @escaping (_ exercises: [ExerciseDetail]) -> ()) {
+        let wk_child_ref = _REF_BASE.child((Auth.auth().currentUser?.uid)!).child(workout).child(day)
+        
+        var dailyArray = [ExerciseDetail]()
+        wk_child_ref.observeSingleEvent(of: .value) { (dailySnapshot) in
+            guard let dailySnapshot = dailySnapshot.children.allObjects as?
+                [DataSnapshot] else {return}
+            for day in dailySnapshot {
+                let exerciseName = day.childSnapshot(forPath: "exerciseName").value as! String
+                let reps = day.childSnapshot(forPath: "reps").value as! String
+                let rest = day.childSnapshot(forPath: "rest").value as! String
+                let sets = day.childSnapshot(forPath: "sets").value as! String
+                let category = day.childSnapshot(forPath: "category").value as! String
+                let imageLocation = day.childSnapshot(forPath: "image").value as! String
+                let keyName = day.key
+                let exerciseDetail = ExerciseDetail(keyName: keyName, exerciseName: exerciseName, reps: reps, rest: rest, sets: sets, category: category, imageLocation: imageLocation)
+                dailyArray.append(exerciseDetail)
+            }
+            handler(dailyArray)
+        }
+        
+        
+    }
+    
     func getAllExercises(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
         let ex_child_ref = _REF_EXERCISES.child(type)
         print(ex_child_ref)
