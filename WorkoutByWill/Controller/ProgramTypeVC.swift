@@ -33,6 +33,7 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let productsVC = segue.destination as? DailyWorkoutVC {
+            print(sender as! String)
             productsVC.type = sender as! String
         }
     }
@@ -54,7 +55,7 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
-    var programArray = ["randomWorkout"]
+    var programArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         programCollectionView.dataSource = self
@@ -68,7 +69,10 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         imageView.image = image
         logoContainer.addSubview(imageView)
         navigationItem.titleView = logoContainer
-        
+        DataService.instance.getListofWellnessProgrmas { (wellnessProgramArray) in
+            self.programArray = wellnessProgramArray
+            self.programCollectionView.reloadData()
+        }
         // Do any additional setup after loading the view.
         
     }

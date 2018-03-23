@@ -20,7 +20,12 @@ class DataService {
     private var _REF_BASE = DB_BASE
     private var _REF_EXERCISES = DB_BASE.child("exercises")
     private var _REF_WORKOUTS = DB_BASE.child("workouts")
-    
+    let _bpCategories = [Category(title: "neckandshoulders", uiTitle: "Neck and Shoulders", image: "neckshoulder"),
+                         Category(title: "kneeandankle", uiTitle: "Knee and Ankle", image: "kneeankle"),
+                         Category(title: "lowerbackandhip", uiTitle: "Lower Back and Hip", image: "backhip")]
+    var bpCategories: [Category]{
+        return _bpCategories
+    }
     var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
@@ -32,8 +37,27 @@ class DataService {
     var REF_WORKOUTS: DatabaseReference {
         return _REF_WORKOUTS
     }
+    
+    func getListofWellnessProgrmas(handler: @escaping (_ programs: [String]) -> ()){
+        let individualRef = REF_BASE.child("wellnessprograms")
+        var listWorkouts = [String]()
+        print(individualRef)
+        
+        individualRef.observeSingleEvent(of: .value) { (paidSnapshot) in
+            guard let paidSnapshot = paidSnapshot.children.allObjects as?
+                [DataSnapshot] else {return}
+            
+            for ex in paidSnapshot {
+                listWorkouts.append(ex.value as! String)
+            }
+            handler(listWorkouts)
+        }
+        
+    }
+    
     func getRandomWorkouts(workout: String, day: String, handler: @escaping (_ exercises: [ExerciseDetail]) -> ()) {
         let wk_child_ref = _REF_BASE.child(workout).child(day)
+        
         var dailyArray = [ExerciseDetail]()
         wk_child_ref.observeSingleEvent(of: .value) { (dailySnapshot) in
             guard let dailySnapshot = dailySnapshot.children.allObjects as?
@@ -56,6 +80,7 @@ class DataService {
     }
     func getAllExercises(type: String, handler: @escaping (_ exercises: [Exercise]) -> ()) {
         let ex_child_ref = _REF_EXERCISES.child(type)
+        print(ex_child_ref)
         var exerciseArray = [Exercise]()
         ex_child_ref.observeSingleEvent(of: .value) { (exerciseSnapshot) in
             guard let exerciseSnapshot = exerciseSnapshot.children.allObjects as?

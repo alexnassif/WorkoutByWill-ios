@@ -40,7 +40,7 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         default:
             day = "monday"
         }
-        
+        print(type)
         DataService.instance.getRandomWorkouts(workout: type, day: day) { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()

@@ -11,9 +11,9 @@ import UIKit
 class ExerciseVC: UIViewController {
 
     @IBOutlet weak var exerciseTableView: UITableView!
-    var exerciseArray = ["Neck and Shoulder", "Knee and Ankle", "Lower Back and Hip"]
-    var picArray = ["neckshoulder", "kneeankle", "backhip"]
-    var exArr = ["neckandshoulders", "kneeandankle", "lowerbackandhip"]
+    
+    var exArr = [Category]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseTableView.dataSource = self
@@ -26,6 +26,7 @@ class ExerciseVC: UIViewController {
         imageView.image = image
         logoContainer.addSubview(imageView)
         navigationItem.titleView = logoContainer
+        exArr = DataService.instance.bpCategories
         
     }
 
@@ -35,7 +36,8 @@ class ExerciseVC: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ExerciseTypeVC", sender: exArr[indexPath.row])
+        let category = exArr[indexPath.row]._title
+        performSegue(withIdentifier: "ExerciseTypeVC", sender: category)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,7 +52,7 @@ class ExerciseVC: UIViewController {
 
 extension ExerciseVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exerciseArray.count
+        return exArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,8 +60,8 @@ extension ExerciseVC: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        let image = UIImage(named: picArray[indexPath.row])
-        let exerciseLabel = exerciseArray[indexPath.row]
+        let image = UIImage(named: exArr[indexPath.row]._image)
+        let exerciseLabel = exArr[indexPath.row]._uiTitle
         cell.configureCell(exerciseType: exerciseLabel, exerciseImage: image!)
         
         return cell
