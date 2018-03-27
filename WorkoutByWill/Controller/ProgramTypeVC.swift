@@ -45,15 +45,33 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     @IBOutlet weak var programCollectionView: UICollectionView!
     
     @IBAction func logout(_ sender: Any) {
+        let alert = UIAlertController(title: "UIAlertController", message: "Would you like to Sign-out?", preferredStyle: UIAlertControllerStyle.alert)
         
-        let firebaseAuth = Auth.auth()
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Sign-out", style: UIAlertActionStyle.destructive, handler: { action in
+            
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "tabController")
+                UIApplication.shared.keyWindow?.rootViewController = loginViewController
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        /*let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
             let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "tabController")
             UIApplication.shared.keyWindow?.rootViewController = loginViewController
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
-        }
+        }*/
     }
     
     
