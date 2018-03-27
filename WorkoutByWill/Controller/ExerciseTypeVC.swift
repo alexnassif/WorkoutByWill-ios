@@ -63,7 +63,9 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             let exercise = exercises[indexPath.row]
             
             let profileImageUrl = exercise._images[0]
-            let url = URL(string: profileImageUrl)
+            
+            cell.configureCell(exerciseType: exercise._name, exerciseImage: profileImageUrl)
+            /*let url = URL(string: profileImageUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                 if error != nil {
                     print(error!)
@@ -73,7 +75,7 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     cell.configureCell(exerciseType: exercise._name, exerciseImage: UIImage(data: data!)!)
                 }
-            }).resume()
+            }).resume()*/
             
 
             return cell

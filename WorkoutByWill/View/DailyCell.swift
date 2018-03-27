@@ -16,11 +16,11 @@ class DailyCell: UICollectionViewCell {
     @IBOutlet weak var setsLbl: UITextView!
     @IBOutlet weak var restLbl: UITextView!
     
-    func configureCell(exercise: String, sets: String, reps: String, rest: String, image: UIImage){
+    func configureCell(exercise: String, sets: String, reps: String, rest: String, image: String){
         self.setsLbl.text = sets
         self.repsLbl.text = reps
         self.restLbl.text = rest
-        self.dailyImage.image = image
+        self.dailyImage.loadImageUsingCacheWithUrlString(urlString: image)
         self.exerciseNameLbl.text = exercise
     }
 }

@@ -22,7 +22,8 @@ class BeginImageVC: UIViewController {
         super.viewWillAppear(animated)
         
         //beginImage.image = UIImage(named: imageName)
-        if let profileImageUrl = imageName {
+        self.beginImage.loadImageUsingCacheWithUrlString(urlString: imageName)
+        /*if let profileImageUrl = imageName {
             let url = URL(string: profileImageUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                 if error != nil {
@@ -33,7 +34,7 @@ class BeginImageVC: UIViewController {
                     self.beginImage.image = UIImage(data: data!)
                 }
             }).resume()
-        }
+        }*/
         
     }
     override func didReceiveMemoryWarning() {

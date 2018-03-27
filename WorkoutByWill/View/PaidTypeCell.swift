@@ -16,5 +16,6 @@ class PaidTypeCell: UICollectionViewCell {
     func configureCell(paidType: String, paidImage: UIImage){
         self.paidLbl.text = paidType
         self.paidImage.image = paidImage
+        //self.paidImage.loadImageUsingCacheWithUrlString(urlString: paidImage)
     }
 }

@@ -16,5 +16,6 @@ class ProgramTypeCell: UICollectionViewCell {
     func configureCell(programType: String, programImage: UIImage){
         self.programTypeLbl.text = programType
         self.programTypeImage.image = programImage
+        //self.programTypeImage.loadImageUsingCacheWithUrlString(urlString: programImage)
     }
 }

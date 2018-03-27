@@ -13,9 +13,9 @@ class ExerciseTypeCell: UICollectionViewCell {
     @IBOutlet weak var exerciseTypeImage: UIImageView!
     @IBOutlet weak var exerciseTypeLbl: UILabel!
     
-    func configureCell(exerciseType: String, exerciseImage: UIImage){
+    func configureCell(exerciseType: String, exerciseImage: String){
         self.exerciseTypeLbl.text = exerciseType
-        self.exerciseTypeImage.image = exerciseImage
+        self.exerciseTypeImage.loadImageUsingCacheWithUrlString(urlString: exerciseImage)
     }
     
 }

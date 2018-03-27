@@ -17,6 +17,7 @@
 		9614A5BA205A4ABF00F13388 /* DailyWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5B9205A4ABF00F13388 /* DailyWorkoutVC.swift */; };
 		9614A5BC205A4C3400F13388 /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5BB205A4C3400F13388 /* DailyCell.swift */; };
 		9614A5BE205A512500F13388 /* ExerciseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614A5BD205A512500F13388 /* ExerciseDetail.swift */; };
+		9614CA422069B90000282340 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614CA412069B90000282340 /* Extensions.swift */; };
 		9616E345205CE61C00787ED0 /* PaidTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616E344205CE61C00787ED0 /* PaidTypeCell.swift */; };
 		9616E349205CEEA200787ED0 /* PaidVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9616E348205CEEA200787ED0 /* PaidVC.swift */; };
 		96183F201FFC5C6100E80D49 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96183F1F1FFC5C6100E80D49 /* DataService.swift */; };
@@ -46,6 +47,7 @@
 		9614A5B9205A4ABF00F13388 /* DailyWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWorkoutVC.swift; sourceTree = "<group>"; };
 		9614A5BB205A4C3400F13388 /* DailyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		9614A5BD205A512500F13388 /* ExerciseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetail.swift; sourceTree = "<group>"; };
+		9614CA412069B90000282340 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9616E344205CE61C00787ED0 /* PaidTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidTypeCell.swift; sourceTree = "<group>"; };
 		9616E348205CEEA200787ED0 /* PaidVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidVC.swift; sourceTree = "<group>"; };
 		96183F1F1FFC5C6100E80D49 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9614CA402069B8B300282340 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9614CA412069B90000282340 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		96183F1E1FFC5C4100E80D49 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		96FA1E961F6767AE00411E93 /* WorkoutByWill */ = {
 			isa = PBXGroup;
 			children = (
+				9614CA402069B8B300282340 /* Helpers */,
 				961084F31FFDC510004F385F /* View */,
 				961084F21FFDC4F8004F385F /* Controller */,
 				96183F211FFC5F0800E80D49 /* Model */,
@@ -212,6 +223,7 @@
 				TargetAttributes = {
 					96FA1E931F6767AE00411E93 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3QC4W27S9A;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -366,6 +378,7 @@
 				9616E345205CE61C00787ED0 /* PaidTypeCell.swift in Sources */,
 				9614A5BC205A4C3400F13388 /* DailyCell.swift in Sources */,
 				9616E349205CEEA200787ED0 /* PaidVC.swift in Sources */,
+				9614CA422069B90000282340 /* Extensions.swift in Sources */,
 				96DBB4E520589EC500D331E4 /* ProgramTypeVC.swift in Sources */,
 				9614A5BE205A512500F13388 /* ExerciseDetail.swift in Sources */,
 				962B2EC3200EDE4C00C5E0C6 /* AfterImageVC.swift in Sources */,
@@ -510,6 +523,7 @@
 			baseConfigurationReference = 7D3DBE0E912B21F6D78DEB6D /* Pods-WorkoutByWill.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QC4W27S9A;
 				INFOPLIST_FILE = WorkoutByWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexnassif.mobile.WorkoutByWill;
@@ -524,6 +538,7 @@
 			baseConfigurationReference = 05220DFDD8DBDE17B9E76873 /* Pods-WorkoutByWill.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3QC4W27S9A;
 				INFOPLIST_FILE = WorkoutByWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexnassif.mobile.WorkoutByWill;
