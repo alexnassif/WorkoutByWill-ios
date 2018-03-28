@@ -10,6 +10,7 @@ import UIKit
 
 class DailyPaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dailyCollectionview: UICollectionView!
     
     @IBOutlet weak var dailySegment: UISegmentedControl!
@@ -40,7 +41,6 @@ class DailyPaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         default:
             day = "monday"
         }
-        print(type)
         DataService.instance.getRandomWorkouts(workout: type, day: day) { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()
@@ -50,12 +50,21 @@ class DailyPaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         super.viewDidLoad()
         dailyCollectionview.delegate = self
         dailyCollectionview.dataSource = self
-        
+        self.progressIndicator.startAnimating()
         DataService.instance.getPaidWorkoutDayDetail(workout: type, day: "monday") { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()
+            
+            self.progressIndicator.stopAnimating()
+            self.progressIndicator.isHidden = true
+                
+            
+            
         }
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let exerciseDetail = exercises[indexPath.row]
@@ -79,19 +88,6 @@ class DailyPaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             
             let exerciseDetail = exercises[indexPath.row]
             cell.configureCell(exercise: exerciseDetail._exerciseName, sets: exerciseDetail._sets, reps: exerciseDetail._reps, rest: exerciseDetail._rest, image: exerciseDetail._imageLocation)
-            /*let url = URL(string: exerciseDetail._imageLocation)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                DispatchQueue.main.async {
-                    
-                    cell.configureCell(exercise: exerciseDetail._exerciseName, sets: exerciseDetail._sets, reps: exerciseDetail._reps, rest: exerciseDetail._rest, image: UIImage(data: data!)!)
-                    
-                }
-            }).resume()*/
-            
             
             return cell
             

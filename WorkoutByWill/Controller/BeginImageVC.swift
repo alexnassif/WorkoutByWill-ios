@@ -22,7 +22,9 @@ class BeginImageVC: UIViewController {
         super.viewWillAppear(animated)
         
         //beginImage.image = UIImage(named: imageName)
-        self.beginImage.loadImageUsingCacheWithUrlString(urlString: imageName)
+        self.beginImage.loadImageUsingCacheWithUrlString(urlString: imageName){_ in 
+            
+        }
         /*if let profileImageUrl = imageName {
             let url = URL(string: profileImageUrl)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in

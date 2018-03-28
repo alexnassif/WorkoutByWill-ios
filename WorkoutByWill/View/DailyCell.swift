@@ -20,7 +20,9 @@ class DailyCell: UICollectionViewCell {
         self.setsLbl.text = sets
         self.repsLbl.text = reps
         self.restLbl.text = rest
-        self.dailyImage.loadImageUsingCacheWithUrlString(urlString: image)
+        self.dailyImage.loadImageUsingCacheWithUrlString(urlString: image){_ in 
+            
+        }
         self.exerciseNameLbl.text = exercise
     }
 }

@@ -12,6 +12,7 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var dailyCollectionview: UICollectionView!
     
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dailySegment: UISegmentedControl!
     private(set) public var exercises = [ExerciseDetail]()
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 10.0, bottom: 5.0, right: 10.0)
@@ -50,10 +51,16 @@ class DailyWorkoutVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         dailyCollectionview.delegate = self
         dailyCollectionview.dataSource = self
+        progressIndicator.startAnimating()
         
         DataService.instance.getRandomWorkouts(workout: type, day: "monday") { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()
+            
+            self.progressIndicator.stopAnimating()
+            self.progressIndicator.isHidden = true
+                
+            
         }
         // Do any additional setup after loading the view.
     }

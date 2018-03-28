@@ -15,7 +15,9 @@ class ExerciseTypeCell: UICollectionViewCell {
     
     func configureCell(exerciseType: String, exerciseImage: String){
         self.exerciseTypeLbl.text = exerciseType
-        self.exerciseTypeImage.loadImageUsingCacheWithUrlString(urlString: exerciseImage)
+        self.exerciseTypeImage.loadImageUsingCacheWithUrlString(urlString: exerciseImage){_ in 
+            
+        }
     }
     
 }

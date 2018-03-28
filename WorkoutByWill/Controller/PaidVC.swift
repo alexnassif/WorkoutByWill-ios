@@ -13,7 +13,8 @@ import FirebaseGoogleAuthUI
 
 class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AuthUIDelegate{
     
-
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var paidCollectionView: UICollectionView!
     var paidWorkoutsArray = [String]()
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -47,7 +48,7 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        progressIndicator.startAnimating()
         if !isUserSignedIn() {
             showLoginView()
         }
@@ -55,6 +56,7 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             DataService.instance.getPaidWorkouts(handler: { (paidArray) in
                 self.paidWorkoutsArray = paidArray
                 self.paidCollectionView.reloadData()
+                self.stopIndicator()
             })
         }
     }
@@ -102,18 +104,16 @@ class PaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             DataService.instance.getPaidWorkouts(handler: { (paidArray) in
                 self.paidWorkoutsArray = paidArray
                 self.paidCollectionView.reloadData()
+                self.stopIndicator()
             })
         }
         
-    }    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    func stopIndicator(){
+        self.progressIndicator.stopAnimating()
+        self.progressIndicator.isHidden = true
+    }
 
 }
 

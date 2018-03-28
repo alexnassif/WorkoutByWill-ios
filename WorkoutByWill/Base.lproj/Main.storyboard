@@ -87,25 +87,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="G46-iF-91Y">
+                                <rect key="frame" x="177.5" y="267" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AAm-lG-2Jc" secondAttribute="trailing" id="8wp-Kp-nSU"/>
+                            <constraint firstItem="G46-iF-91Y" firstAttribute="centerY" secondItem="UGJ-2i-v8u" secondAttribute="centerY" id="ElW-FU-ZEK"/>
                             <constraint firstItem="AAm-lG-2Jc" firstAttribute="top" secondItem="UGJ-2i-v8u" secondAttribute="top" id="Kxu-SK-Z3m"/>
                             <constraint firstItem="AAm-lG-2Jc" firstAttribute="leading" secondItem="UGJ-2i-v8u" secondAttribute="leading" id="QEq-PJ-8GB"/>
                             <constraint firstItem="CzJ-CZ-xbP" firstAttribute="top" secondItem="AAm-lG-2Jc" secondAttribute="bottom" id="cov-Km-9DL"/>
+                            <constraint firstItem="G46-iF-91Y" firstAttribute="centerX" secondItem="UGJ-2i-v8u" secondAttribute="centerX" id="rpp-q6-pOm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Fny-cp-N4C">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="vHz-uq-qil">
-                            <color key="tintColor" red="1" green="0.12875357949999999" blue="0.1919556543" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="logout:" destination="GEb-Zs-1MM" id="eNB-N4-HjQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Fny-cp-N4C"/>
                     <connections>
                         <outlet property="programCollectionView" destination="AAm-lG-2Jc" id="adT-ID-57i"/>
+                        <outlet property="progressIndicator" destination="G46-iF-91Y" id="5M9-tL-Vvp"/>
                         <segue destination="K11-tn-BQ3" kind="show" identifier="DaySegue" id="kfq-Kd-ru1"/>
                     </connections>
                 </viewController>
@@ -275,14 +274,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Sy1-Ok-qKE">
+                                <rect key="frame" x="177" y="267" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ILY-8c-11H"/>
+                                    <constraint firstAttribute="width" constant="20" id="hux-0X-66P"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1Po-rK-Lp1" firstAttribute="top" secondItem="rIZ-ga-Scj" secondAttribute="bottom" id="7fZ-ya-hOf"/>
+                            <constraint firstItem="Sy1-Ok-qKE" firstAttribute="centerY" secondItem="SHF-ak-233" secondAttribute="centerY" id="CDE-Sb-927"/>
                             <constraint firstAttribute="trailing" secondItem="rIZ-ga-Scj" secondAttribute="trailing" id="Dyr-dg-fVS"/>
                             <constraint firstItem="MRb-gu-SEu" firstAttribute="top" secondItem="SHF-ak-233" secondAttribute="top" constant="8" id="Lbk-Mv-aXW"/>
                             <constraint firstItem="rIZ-ga-Scj" firstAttribute="leading" secondItem="SHF-ak-233" secondAttribute="leading" id="Qba-5d-vA7"/>
                             <constraint firstAttribute="trailing" secondItem="MRb-gu-SEu" secondAttribute="trailing" id="X0f-Oy-bAt"/>
+                            <constraint firstItem="Sy1-Ok-qKE" firstAttribute="centerX" secondItem="SHF-ak-233" secondAttribute="centerX" id="jC1-JU-IBG"/>
                             <constraint firstItem="MRb-gu-SEu" firstAttribute="leading" secondItem="SHF-ak-233" secondAttribute="leading" id="o6O-hB-4xf"/>
                             <constraint firstItem="rIZ-ga-Scj" firstAttribute="top" secondItem="MRb-gu-SEu" secondAttribute="bottom" constant="16" id="q03-s0-C6r"/>
                         </constraints>
@@ -290,6 +298,7 @@
                     <connections>
                         <outlet property="dailyCollectionview" destination="rIZ-ga-Scj" id="gAO-vb-csh"/>
                         <outlet property="dailySegment" destination="MRb-gu-SEu" id="wNb-G6-DIX"/>
+                        <outlet property="progressIndicator" destination="Sy1-Ok-qKE" id="GPU-ly-tyB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mym-7e-IzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,6 +323,7 @@
                         <segue destination="mXd-oG-daB" kind="relationship" relationship="viewControllers" id="FBR-Wd-iB0"/>
                         <segue destination="Y9U-Hl-tqs" kind="relationship" relationship="viewControllers" id="r2i-5I-sht"/>
                         <segue destination="3eK-hb-ntf" kind="relationship" relationship="viewControllers" id="2k4-zA-hkj"/>
+                        <segue destination="bbK-Ys-8ak" kind="relationship" relationship="viewControllers" id="BIK-kv-R4p"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awb-nm-dyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,6 +437,43 @@
             </objects>
             <point key="canvasLocation" x="-130" y="1424"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="gJw-a7-plZ">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" id="bbK-Ys-8ak" customClass="SettingsVC" customModule="WorkoutByWill" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WnS-z5-gJJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="UKr-1s-4G2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TY9-xI-S08">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJ9-ov-tGP">
+                                <rect key="frame" x="20" y="40" width="335" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signoutBtn:" destination="bbK-Ys-8ak" eventType="touchUpInside" id="yhK-6h-GpZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bJ9-ov-tGP" firstAttribute="leading" secondItem="TY9-xI-S08" secondAttribute="leading" constant="20" id="n3b-Yv-p6C"/>
+                            <constraint firstItem="bJ9-ov-tGP" firstAttribute="top" secondItem="WnS-z5-gJJ" secondAttribute="bottom" constant="20" id="nyv-mn-2fZ"/>
+                            <constraint firstAttribute="trailing" secondItem="bJ9-ov-tGP" secondAttribute="trailing" constant="20" id="xoJ-PN-dUu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="aut-uK-yiA"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hL9-uA-chh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1111.2" y="1209.4452773613195"/>
+        </scene>
         <!--PaidVC-->
         <scene sceneID="RG0-OF-eTg">
             <objects>
@@ -483,9 +530,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aOH-JW-xng">
+                                <rect key="frame" x="177.5" y="267" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="aOH-JW-xng" firstAttribute="centerX" secondItem="wzj-dm-Na1" secondAttribute="centerX" id="7R8-BK-nh9"/>
+                            <constraint firstItem="aOH-JW-xng" firstAttribute="centerY" secondItem="wzj-dm-Na1" secondAttribute="centerY" id="7h5-9b-piE"/>
                             <constraint firstAttribute="trailing" secondItem="HJ6-Yv-VEg" secondAttribute="trailing" id="ZyN-Qg-zPe"/>
                             <constraint firstItem="kcY-HA-Fzi" firstAttribute="top" secondItem="HJ6-Yv-VEg" secondAttribute="bottom" id="a8t-o9-Ie4"/>
                             <constraint firstItem="HJ6-Yv-VEg" firstAttribute="leading" secondItem="wzj-dm-Na1" secondAttribute="leading" id="r6u-EI-jjX"/>
@@ -495,6 +547,7 @@
                     <navigationItem key="navigationItem" id="spy-7F-DzX"/>
                     <connections>
                         <outlet property="paidCollectionView" destination="HJ6-Yv-VEg" id="sao-8m-GC8"/>
+                        <outlet property="progressIndicator" destination="aOH-JW-xng" id="Gx4-aV-VhY"/>
                         <segue destination="NId-PX-NuQ" kind="show" identifier="PaidDaySegue" id="4EQ-IW-pj2"/>
                     </connections>
                 </viewController>
@@ -559,17 +612,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vWW-pR-0P7">
+                                <rect key="frame" x="177.5" y="267" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2sY-LZ-HVk" firstAttribute="top" secondItem="AKW-mW-w7O" secondAttribute="bottom" id="E8w-2t-0A4"/>
+                            <constraint firstItem="vWW-pR-0P7" firstAttribute="centerX" secondItem="D3k-Tf-7UN" secondAttribute="centerX" id="Gnb-Gt-3K8"/>
                             <constraint firstItem="AKW-mW-w7O" firstAttribute="leading" secondItem="D3k-Tf-7UN" secondAttribute="leading" id="Qw7-5o-7W3"/>
                             <constraint firstItem="AKW-mW-w7O" firstAttribute="top" secondItem="HEz-Yb-BHa" secondAttribute="bottom" id="d51-gE-JUg"/>
                             <constraint firstAttribute="trailing" secondItem="AKW-mW-w7O" secondAttribute="trailing" id="peR-Uq-cvQ"/>
+                            <constraint firstItem="vWW-pR-0P7" firstAttribute="centerY" secondItem="D3k-Tf-7UN" secondAttribute="centerY" id="ymA-mf-erV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AKW-mW-w7O" id="jMF-C3-q7s"/>
+                        <outlet property="progressIndicator" destination="vWW-pR-0P7" id="C90-Oh-6VS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oW-0u-rRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -730,6 +789,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-zh-2z1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-8Y-0SC">
+                                <rect key="frame" x="177" y="106" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -737,11 +799,14 @@
                             <constraint firstItem="L0i-zh-2z1" firstAttribute="top" secondItem="Bd9-iu-DJ9" secondAttribute="bottom" id="VkO-ve-avZ"/>
                             <constraint firstItem="z6S-K0-mUL" firstAttribute="top" secondItem="L0i-zh-2z1" secondAttribute="bottom" id="bMX-sz-GEV"/>
                             <constraint firstAttribute="trailing" secondItem="L0i-zh-2z1" secondAttribute="trailing" id="he3-Dn-fGY"/>
+                            <constraint firstItem="fSO-8Y-0SC" firstAttribute="centerX" secondItem="IVg-Yz-gg4" secondAttribute="centerX" id="njD-ku-dIk"/>
+                            <constraint firstItem="fSO-8Y-0SC" firstAttribute="centerY" secondItem="IVg-Yz-gg4" secondAttribute="centerY" id="q0b-I1-FiV"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="233"/>
                     <connections>
                         <outlet property="afterImage" destination="L0i-zh-2z1" id="K1v-Uq-C2Q"/>
+                        <outlet property="progressIndicator" destination="fSO-8Y-0SC" id="2Sn-HU-X9e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl2-Th-LP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -910,12 +975,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0zZ-kg-a1B">
+                                <rect key="frame" x="167" y="257" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="SNj-Xi-dYb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="gRl-EL-5Cy"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NhX-s5-drq" firstAttribute="top" secondItem="cV0-cV-Bmj" secondAttribute="top" constant="8" id="6u8-6p-Ijf"/>
                             <constraint firstItem="NhX-s5-drq" firstAttribute="leading" secondItem="cV0-cV-Bmj" secondAttribute="leading" id="G5N-ua-Lbw"/>
                             <constraint firstAttribute="trailing" secondItem="ngf-n8-zt2" secondAttribute="trailing" id="OUT-Z0-aZo"/>
+                            <constraint firstItem="0zZ-kg-a1B" firstAttribute="centerY" secondItem="cV0-cV-Bmj" secondAttribute="centerY" id="QGV-Mv-aSd"/>
+                            <constraint firstItem="0zZ-kg-a1B" firstAttribute="centerX" secondItem="cV0-cV-Bmj" secondAttribute="centerX" id="VM4-MI-pSt"/>
                             <constraint firstAttribute="trailing" secondItem="NhX-s5-drq" secondAttribute="trailing" id="dza-jv-2bb"/>
                             <constraint firstItem="ngf-n8-zt2" firstAttribute="top" secondItem="NhX-s5-drq" secondAttribute="bottom" constant="16" id="e7f-8D-eDc"/>
                             <constraint firstItem="ngf-n8-zt2" firstAttribute="leading" secondItem="cV0-cV-Bmj" secondAttribute="leading" id="mVK-wP-XLk"/>
@@ -925,6 +999,7 @@
                     <connections>
                         <outlet property="dailyCollectionview" destination="ngf-n8-zt2" id="ct3-jM-7cb"/>
                         <outlet property="dailySegment" destination="NhX-s5-drq" id="SxS-Fn-cvm"/>
+                        <outlet property="progressIndicator" destination="0zZ-kg-a1B" id="8tM-OA-2AG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQq-SY-hPn" userLabel="First Responder" sceneMemberID="firstResponder"/>

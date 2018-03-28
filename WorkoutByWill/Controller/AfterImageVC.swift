@@ -10,6 +10,7 @@ import UIKit
 
 class AfterImageVC: UIViewController {
 
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet weak var afterImage: UIImageView!
     var imageName: String!
     override func viewDidLoad() {
@@ -20,8 +21,13 @@ class AfterImageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.afterImage.loadImageUsingCacheWithUrlString(urlString: imageName)
+        progressIndicator.startAnimating()
+        self.afterImage.loadImageUsingCacheWithUrlString(urlString: imageName){(done) in
+            
+            self.progressIndicator.stopAnimating()
+            self.progressIndicator.isHidden = true
+            
+        }
         
         /*if let profileImageUrl = imageName {
             let url = URL(string: profileImageUrl)

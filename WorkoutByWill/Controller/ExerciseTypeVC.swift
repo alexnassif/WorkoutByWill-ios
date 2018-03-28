@@ -10,6 +10,7 @@ import UIKit
 
 class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 2
@@ -22,6 +23,7 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        progressIndicator.startAnimating()
         
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
@@ -39,6 +41,8 @@ class ExerciseTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         DataService.instance.getAllExercises(type: self.type) { (returnedExercisesArray) in
             self.exercises = returnedExercisesArray
             self.collectionView.reloadData()
+            self.progressIndicator.stopAnimating()
+            self.progressIndicator.isHidden = true
         }
         
     }
