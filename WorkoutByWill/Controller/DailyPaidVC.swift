@@ -41,9 +41,13 @@ class DailyPaidVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         default:
             day = "monday"
         }
-        DataService.instance.getRandomWorkouts(workout: type, day: day) { (dailyArray) in
+        self.progressIndicator.isHidden = false
+        self.progressIndicator.startAnimating()
+        DataService.instance.getPaidWorkoutDayDetail(workout: type, day: day) { (dailyArray) in
             self.exercises = dailyArray
             self.dailyCollectionview.reloadData()
+            self.progressIndicator.stopAnimating()
+            self.progressIndicator.isHidden = true
         }
     }
     override func viewDidLoad() {
