@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>422957248488-ediff7lgc4bji32loc33cttjb93dnil6.apps.googleusercontent.com</string>
+	<string>453510825934-ffsvfavdfip0peln4h7r0l2q084cv87i.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.422957248488-ediff7lgc4bji32loc33cttjb93dnil6</string>
+	<string>com.googleusercontent.apps.453510825934-ffsvfavdfip0peln4h7r0l2q084cv87i</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBa5f19IW5O2TFZkc8D9fJuEJqkhoQxWww</string>
+	<string>AIzaSyAqJRZJfKRfepKbJQCKWF6dIz0pgjMzrWo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>422957248488</string>
+	<string>453510825934</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.alexnassif.mobile.WorkoutByWill</string>
+	<string>com.nassifwellness.www.NassifWellness</string>
 	<key>PROJECT_ID</key>
-	<string>willfitness-299fa</string>
+	<string>nassif-wellness</string>
 	<key>STORAGE_BUCKET</key>
-	<string>willfitness-299fa.appspot.com</string>
+	<string>nassif-wellness.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:422957248488:ios:f936e2b1dad875a0</string>
+	<string>1:453510825934:ios:a7f3ca34bb162cb5</string>
 	<key>DATABASE_URL</key>
-	<string>https://willfitness-299fa.firebaseio.com</string>
+	<string>https://nassif-wellness.firebaseio.com</string>
 </dict>
 </plist>

@@ -23,10 +23,10 @@
 		96178C69206B1AAB0026DD99 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96178C68206B1AAB0026DD99 /* SettingsVC.swift */; };
 		96183F201FFC5C6100E80D49 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96183F1F1FFC5C6100E80D49 /* DataService.swift */; };
 		96183F231FFC5F1C00E80D49 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96183F221FFC5F1C00E80D49 /* Exercise.swift */; };
+		9629AEA02072F63100738DA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9629AE9F2072F63100738DA7 /* GoogleService-Info.plist */; };
 		962B2EC1200EDE2400C5E0C6 /* BeginImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B2EC0200EDE2400C5E0C6 /* BeginImageVC.swift */; };
 		962B2EC3200EDE4C00C5E0C6 /* AfterImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B2EC2200EDE4C00C5E0C6 /* AfterImageVC.swift */; };
 		964EC1CA2005A31600A107CB /* ExerciseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964EC1C92005A31600A107CB /* ExerciseDetailVC.swift */; };
-		96AF3AE21F8AE8D100AEAEF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96AF3AE11F8AE8D100AEAEF3 /* GoogleService-Info.plist */; };
 		96C9545F200440C3009189E5 /* BeforeAfterImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9545E200440C3009189E5 /* BeforeAfterImageVC.swift */; };
 		96DBB4E320589DEC00D331E4 /* ProgramTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBB4E220589DEC00D331E4 /* ProgramTypeCell.swift */; };
 		96DBB4E520589EC500D331E4 /* ProgramTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DBB4E420589EC500D331E4 /* ProgramTypeVC.swift */; };
@@ -54,10 +54,10 @@
 		96178C68206B1AAB0026DD99 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		96183F1F1FFC5C6100E80D49 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		96183F221FFC5F1C00E80D49 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		9629AE9F2072F63100738DA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		962B2EC0200EDE2400C5E0C6 /* BeginImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginImageVC.swift; sourceTree = "<group>"; };
 		962B2EC2200EDE4C00C5E0C6 /* AfterImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterImageVC.swift; sourceTree = "<group>"; };
 		964EC1C92005A31600A107CB /* ExerciseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailVC.swift; sourceTree = "<group>"; };
-		96AF3AE11F8AE8D100AEAEF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96C9545E200440C3009189E5 /* BeforeAfterImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterImageVC.swift; sourceTree = "<group>"; };
 		96DBB4E220589DEC00D331E4 /* ProgramTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTypeCell.swift; sourceTree = "<group>"; };
 		96DBB4E420589EC500D331E4 /* ProgramTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramTypeVC.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				96FA1E9E1F6767AE00411E93 /* Assets.xcassets */,
 				96FA1EA01F6767AE00411E93 /* LaunchScreen.storyboard */,
 				96FA1EA31F6767AE00411E93 /* Info.plist */,
-				96AF3AE11F8AE8D100AEAEF3 /* GoogleService-Info.plist */,
+				9629AE9F2072F63100738DA7 /* GoogleService-Info.plist */,
 			);
 			path = WorkoutByWill;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FA1EA21F6767AE00411E93 /* LaunchScreen.storyboard in Resources */,
-				96AF3AE21F8AE8D100AEAEF3 /* GoogleService-Info.plist in Resources */,
+				9629AEA02072F63100738DA7 /* GoogleService-Info.plist in Resources */,
 				96FA1E9F1F6767AE00411E93 /* Assets.xcassets in Resources */,
 				96FA1E9D1F6767AE00411E93 /* Main.storyboard in Resources */,
 			);
@@ -530,7 +530,7 @@
 				DEVELOPMENT_TEAM = 3QC4W27S9A;
 				INFOPLIST_FILE = WorkoutByWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexnassif.mobile.WorkoutByWill;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nassifwellness.www.NassifWellness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -545,7 +545,7 @@
 				DEVELOPMENT_TEAM = 3QC4W27S9A;
 				INFOPLIST_FILE = WorkoutByWill/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexnassif.mobile.WorkoutByWill;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nassifwellness.www.NassifWellness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
