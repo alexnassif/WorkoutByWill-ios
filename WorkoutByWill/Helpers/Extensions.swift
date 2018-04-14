@@ -22,7 +22,7 @@ extension UIImageView {
         let url = URL(string: urlString)
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             if error != nil {
-                print(error!)
+                //print(error!)
                 completion(false)
             }
             DispatchQueue.main.async {
@@ -36,5 +36,23 @@ extension UIImageView {
                 
             }
         }).resume()
+    }
+}
+
+extension UIViewController {
+    
+    func checkNetwork() {
+        let alert = UIAlertController(title: "", message: "No Network Connectivity", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.destructive, handler: { action in
+            
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }

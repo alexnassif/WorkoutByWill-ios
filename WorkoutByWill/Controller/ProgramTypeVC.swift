@@ -33,13 +33,7 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         imageView.image = image
         logoContainer.addSubview(imageView)
         navigationItem.titleView = logoContainer
-        DataService.instance.getListofWellnessProgrmas { (wellnessProgramArray) in
-            self.programArray = wellnessProgramArray
-            self.programCollectionView.reloadData()
-            self.progressIndicator.stopAnimating()
-            self.progressIndicator.isHidden = true
-        }
-        // Do any additional setup after loading the view.
+
         
     }
     
@@ -47,6 +41,31 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         super.viewDidAppear(animated)
         
         
+        DataService.instance.isConnected { (connected) in
+            
+            if connected {
+                DataService.instance.getListofWellnessProgrmas { (wellnessProgramArray, error) in
+                    if error == nil{
+                        self.programArray = wellnessProgramArray!
+                        self.programCollectionView.reloadData()
+                        self.progressIndicator.stopAnimating()
+                        self.progressIndicator.isHidden = true
+                    }else{
+                        print(error!)
+                    }
+                    
+                }
+                
+            }else{
+                
+                self.checkNetwork()
+                self.progressIndicator.stopAnimating()
+                self.progressIndicator.isHidden = true
+                
+            }
+            
+            
+        }
     }
     
     
@@ -113,3 +132,5 @@ extension ProgramTypeVC: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+

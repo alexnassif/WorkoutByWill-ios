@@ -14,7 +14,7 @@ import FirebaseAuthUI
 let DB_BASE =  Database.database().reference()
 
 class DataService {
-    
+
     static let instance = DataService()
     
     private var _REF_BASE = DB_BASE
@@ -37,21 +37,28 @@ class DataService {
     var REF_WORKOUTS: DatabaseReference {
         return _REF_WORKOUTS
     }
-    
-    func getListofWellnessProgrmas(handler: @escaping (_ programs: [String]) -> ()){
+    func isConnected(completionHandler : @escaping (_ connected: Bool) -> ()) {
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        print(connectedRef)
+        connectedRef.observe(.value, with: { snapshot in
+            completionHandler((snapshot.value as? Bool)!)
+        })
+    }
+    func getListofWellnessProgrmas(handler: @escaping (_ programs: [String]?, _ error: Error?) -> ()){
+        
         let individualRef = REF_BASE.child("wellnessprograms")
         var listWorkouts = [String]()
-        print(individualRef)
+        //print(individualRef)
         
-        individualRef.observeSingleEvent(of: .value) { (paidSnapshot) in
-            guard let paidSnapshot = paidSnapshot.children.allObjects as?
-                [DataSnapshot] else {return}
+        individualRef.observeSingleEvent(of: .value, with: { (paidSnapshot) in
+            let paidSnapshot = paidSnapshot.children.allObjects as!
+                [DataSnapshot]
             
             for ex in paidSnapshot {
                 listWorkouts.append(ex.value as! String)
             }
-            handler(listWorkouts)
-        }
+            handler(listWorkouts, nil)
+        }) {(error) in handler(nil, error)}
         
     }
     
