@@ -41,9 +41,9 @@ extension UIImageView {
 
 extension UIViewController {
     
-    func checkNetwork() {
-        let alert = UIAlertController(title: "", message: "No Network Connectivity", preferredStyle: UIAlertControllerStyle.alert)
-        
+    
+    func checkNetwork(alert: UIAlertController) {
+    
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Try again", style: UIAlertActionStyle.destructive, handler: { action in
             
@@ -55,4 +55,9 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func removeAlert(alert: UIAlertController){
+        alert.dismiss(animated: true, completion: nil)
+    }
+    
 }

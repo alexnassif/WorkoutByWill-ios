@@ -39,11 +39,12 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
+        let alert = UIAlertController(title: "", message: "No Network Connectivity", preferredStyle: UIAlertControllerStyle.alert)
         DataService.instance.isConnected { (connected) in
             
             if connected {
+                
+                self.removeAlert(alert: alert)
                 DataService.instance.getListofWellnessProgrmas { (wellnessProgramArray, error) in
                     if error == nil{
                         self.programArray = wellnessProgramArray!
@@ -58,7 +59,7 @@ class ProgramTypeVC: UIViewController, UICollectionViewDelegate, UICollectionVie
                 
             }else{
                 
-                self.checkNetwork()
+                self.checkNetwork(alert: alert)
                 self.progressIndicator.stopAnimating()
                 self.progressIndicator.isHidden = true
                 
